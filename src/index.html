@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="ie ie8"> <![endif]-->
+<!--[if IE 9]><html class="ie ie9"> <![endif]-->
+<html ng-app="App">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Condocument</title>
+    <base href="/"></base>
+    <!-- Favicons-->
+    <link rel="shortcut icon" href="template/img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/x-icon" href="template/img/apple-touch-icon-57x57-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="template/img/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="template/img/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="template/img/apple-touch-icon-144x144-precomposed.png">
+
+    <!-- CSS -->
+    <link href="template/css/base.css" rel="stylesheet">
+	
+    <!-- Google web fonts -->
+   <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+   <link href='http://fonts.googleapis.com/css?family=Gochi+Hand' rel='stylesheet' type='text/css'>
+   <link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+        
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+        
+</head>
+<body>
+
+<!--[if lte IE 8]>
+    <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a>.</p>
+<![endif]-->
+    <div id="preloader">
+        <div class="sk-spinner sk-spinner-wave">
+            <div class="sk-rect1"></div>
+            <div class="sk-rect2"></div>
+            <div class="sk-rect3"></div>
+            <div class="sk-rect4"></div>
+            <div class="sk-rect5"></div>
+        </div>
+    </div>
+    <!-- End Preload -->
+    
+    <ui-view></ui-view>
+
+	<footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-3">
+                    <h3>Need help?</h3>
+                    <a href="tel://004542344599" id="phone">+45 423 445 99</a>
+                    <a href="mailto:help@citytours.com" id="email_footer">help@citytours.com</a>
+                </div>
+                <div class="col-md-3 col-sm-3">
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Login</a></li>
+                        <li><a href="#">Register</a></li>
+                         <li><a href="#">Terms and condition</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-3">
+                    <h3>Discover</h3>
+                    <ul>
+                        <li><a href="#">Community blog</a></li>
+                        <li><a href="#">Tour guide</a></li>
+                        <li><a href="#">Wishlist</a></li>
+                         <li><a href="#">Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 col-sm-3">
+                    <h3>Settings</h3>
+                    <div class="styled-select">
+                        <select class="form-control" name="lang" id="lang">
+                            <option value="English" selected>English</option>
+                            <option value="French">French</option>
+                            <option value="Spanish">Spanish</option>
+                            <option value="Russian">Russian</option>
+                        </select>
+                    </div>
+                    <div class="styled-select">
+                        <select class="form-control" name="currency" id="currency">
+                            <option value="USD" selected>USD</option>
+                            <option value="EUR">EUR</option>
+                            <option value="GBP">GBP</option>
+                            <option value="RUB">RUB</option>
+                        </select>
+                    </div>
+                </div>
+            </div><!-- End row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="social_footer">
+                        <ul>
+                            <li><a href="#"><i class="icon-facebook"></i></a></li>
+                            <li><a href="#"><i class="icon-twitter"></i></a></li>
+                            <li><a href="#"><i class="icon-google"></i></a></li>
+                            <li><a href="#"><i class="icon-instagram"></i></a></li>
+                            <li><a href="#"><i class="icon-pinterest"></i></a></li>
+                            <li><a href="#"><i class="icon-vimeo"></i></a></li>
+                            <li><a href="#"><i class="icon-youtube-play"></i></a></li>
+                            <li><a href="#"><i class="icon-linkedin"></i></a></li>
+                        </ul>
+                        <p>© Citytours 2015</p>
+                    </div>
+                </div>
+            </div><!-- End row -->
+        </div><!-- End container -->
+    </footer><!-- End footer -->
+
+<div id="toTop"></div><!-- Back to top button -->
+
+ <!-- Common scripts -->
+<script src="template/js/jquery-1.11.2.min.js"></script>
+<script src="template/js/common_scripts_min.js"></script>
+<script src="template/js/functions.js"></script>
+<script src="libs/angular.min.js"></script>
+<script src="libs/angular-route.min.js"></script>
+<script src="libs/restangular.min.js"></script>
+<script src="libs/angular-ui-router.min.js"></script>
+<script src="app.js"></script>
+<script src="config.js"></script>
+<script src="routes.js"></script>
+<script src="controllers.js"></script>
+<script>
+//Search bar
+$(function () {
+"use strict";
+$("#searchDropdownBox").change(function(){
+    var Search_Str = $(this).val();
+    //replace search str in span value
+    $("#nav-search-in-content").text(Search_Str);
+  });
+});
+</script>
+
+  </body>
+</html>

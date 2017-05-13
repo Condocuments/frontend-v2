@@ -1,0 +1,40 @@
+{
+  "name": "anhance",
+  "version": "0.0.1",
+  "authors": [
+    "Muhammad Umer <mumer271992@gmail.com>"
+  ],
+  "description": "Classical ads platform",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-local-storage": "~0.2.3",
+    "angular-ui-router": "ui-router#~0.2.15",
+    "restangular": "~1.5.1",
+    "underscore": "~1.8.3",
+    "ngInfiniteScroll": "~1.2.2",
+    "moment": "^2.17.1",
+    "ng-file-upload": "^12.2.13",
+    "angular-toastr": "^2.1.1",
+    "angular-animate": "1.5.8",
+    "angular-recaptcha": "^4.0.3",
+    "angular-moment": "^1.0.1",
+    "angular-trix": "^1.0.2",
+    "textAngular": "^1.5.16",
+    "angular-scroll": "^1.0.0"
+  },
+  "overrides": {
+    "angularjs-datetime-picker": {
+      "ignore": true
+    },
+    "angular-timer": {
+      "ignore": true
+    }
+  }
+}
