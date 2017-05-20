@@ -30,7 +30,8 @@ app.controller("AllController" , function($scope,$rootScope,$state,$location,$ht
 
 	function init(){
 		var query = $location.search()['query'];
-		var url = query ? "http://rolycg89.pythonanywhere.com/api/v1/condos/search?query=" + query : "http://rolycg89.pythonanywhere.com/api/v1/condos/search"
+
+		var url = query ? "http://rolycg89.pythonanywhere.com/api/v1/condos/search?query=" + query : "http://rolycg89.pythonanywhere.com/api/v1/condos"
 		$http.get(url).then(function(response){
 			if(response){
 				$scope.results = response.data;

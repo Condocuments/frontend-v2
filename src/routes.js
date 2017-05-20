@@ -16,7 +16,7 @@ app.config(function ($stateProvider, $httpProvider, $urlRouterProvider) {
             }
         })
         .state('single' , {
-            url: '/single/:slug',
+            url: '/:slug',
             templateUrl: '/html/single.html',
             controller: 'SingleController'
         })
