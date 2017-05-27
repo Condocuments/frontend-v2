@@ -281,6 +281,34 @@
                 </div><!-- End row  -->
                 
               	<hr>
+
+                  <div class="row">
+                      <div class="col-md-3">
+                          <h3>Units</h3>
+                      </div>
+                      <div class="col-md-9">
+                        <table class="table table-bordered">
+                            <thead>
+                                <th>Furnished</th>
+                                <th>Beds</th>
+                                <th>Garage Spot</th>
+                                <th>Property TYpe</th>
+                                <th>Current Price</th>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="unit in units">
+                                    <td>{{unit.furnished}}</td>
+                                    <td>{{unit.beds}}</td>
+                                    <td>{{unit.garage_spot}}</td>
+                                    <td>{{unit.property_type}}</td>
+                                    <td>{{unit.current_price}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                      </div><!-- End col-md-9  -->
+                  </div><!-- End row  -->
+                  
+                    <hr>
                 
                 <div class="row">
                     <div class="col-md-3">

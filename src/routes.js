@@ -15,6 +15,16 @@ app.config(function ($stateProvider, $httpProvider, $urlRouterProvider) {
                 query:''
             }
         })
+        .state('login' , {
+            url: '/login',
+            templateUrl: '/html/login.html',
+            controller: 'LoginController'
+        })
+        .state('register' , {
+            url: '/register',
+            templateUrl: '/html/register.html',
+            controller: 'RegisterController'
+        })
         .state('single' , {
             url: '/:slug',
             templateUrl: '/html/single.html',

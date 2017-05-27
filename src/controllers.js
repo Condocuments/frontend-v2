@@ -57,5 +57,50 @@ app.controller("SingleController" , function($scope,$rootScope,$state,$statePara
 				$scope.condo = response.data;
 			}
 		});
+		$http.get("http://rolycg89.pythonanywhere.com/api/v1/condos/" + $stateParams.slug + "/unit").then(function(response){
+			if(response){
+				$scope.units = response.data;
+			}
+		});
 	}
+});
+
+app.controller("LoginController" , function($scope,$rootScope,$state,$stateParams,$http , $localStorage){
+	console.log("LoginController");
+	$scope.user = {
+		"username": "condocuments_test"
+	};
+
+	$scope.login = login;
+	
+	////////////////////////////////////////////////////////////////////////////////
+	 function login(){
+	 	$http.post("http://rolycg89.pythonanywhere.com/api-token-auth/" , $scope.user).then(function(response){
+	 		if(response){
+
+	 			$rootScope.access_token = response.data.token;
+	 			$localStorage.access_token = $rootScope.access_token;
+	 		}
+	 	});
+	 }
+	
+});
+
+app.controller("RegisterController" , function($scope,$rootScope,$state,$stateParams,$http){
+	console.log("RegisterController");
+	$scope.user = {};
+	$scope.register = register;
+
+	////////////////////////////////////////////////////////////////////////////////
+
+	function register(){
+		$http.post("http://rolycg89.pythonanywhere.com/api/v1/users/register" , $scope.user).then(function(response){
+			if(response){
+
+				$rootScope.user = response.data;
+				$localStorage.user = $rootScope.user;
+			}
+		});
+	}
+	
 });

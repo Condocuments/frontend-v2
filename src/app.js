@@ -1,4 +1,4 @@
-var app = angular.module('App',['ui.router']);
+var app = angular.module('App',['ui.router' , 'ngStorage']);
 
 
 

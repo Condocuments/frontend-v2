@@ -24,13 +24,15 @@
                                     <!--<option value="Restaurants" title="Restaurants">Restaurants</option>-->
                                 </select>
                                 </span>
+                                <form ng-submit="search()">
                                 <div class="nav-searchfield-outer">
                                     <input type="text" ng-model="query.q" autocomplete="off" name="field-keywords" placeholder="Type your search terms ...." id="twotabsearchtextbox">
                                 </div>
-                                <a ng-click="search()" class="nav-submit-button">
+                                <button type="submit"  class="nav-submit-button">
                                     <!--<input type="submit" title="Cerca" class="nav-submit-input" value="Search">-->
                                     <!--<a href="all_hotels_list.html" class="nav-submit-input"></a>-->
-                                </a>
+                                </button>
+                                </form>
                             </div><!-- End search bar-->
                         </div>
                     </div><!-- /search_bar-->
