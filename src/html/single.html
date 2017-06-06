@@ -3,7 +3,7 @@
 
      <!-- Header================================================== -->
 
-    <section class="parallax-window" data-parallax="scroll" data-image-src="template/img/single_Condominium_bg_1.jpg" data-natural-width="1400" data-natural-height="470">
+    <section class="parallax-window" data-parallax="scroll" data-image-src="{{condo.condo_contents[0].info || 'template/img/single_Condominium_bg_1.jpg'}}" data-natural-width="1400" data-natural-height="470">
     <div class="parallax-content-2">
         <div class="container">
             <div class="row">
@@ -44,7 +44,7 @@
                     <ul>
                         <li ng-if="condo.plasma"><i class="icon_set_2_icon-116"></i>Plasma TV</li>
                         <li ng-if="condo.free_wifi"><i class="icon_set_1_icon-86"></i>Free Wifi</li>
-                        <li ng-if="condo.pool"><i class="icon_set_2_icon-110"></i>Poll</li>
+                        <li ng-if="condo.pool"><i class="icon_set_2_icon-110"></i>Pool</li>
                         <li ng-if="condo.breakfast"><i class="icon_set_1_icon-59"></i>Breakfast</li>
                         <li ng-if="condo.pets"><i class="icon_set_1_icon-22"></i>Pet allowed</li>
                         <li ng-if="condo.fitness_center"><i class="icon_set_1_icon-13"></i>Fitness Center</li>
@@ -287,7 +287,7 @@
                           <h3>Units</h3>
                       </div>
                       <div class="col-md-9">
-                        <table class="table table-bordered">
+                        <!-- <table class="table table-bordered">
                             <thead>
                                 <th>Furnished</th>
                                 <th>Beds</th>
@@ -304,7 +304,30 @@
                                     <td>{{unit.current_price}}</td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table> -->
+                        <input type="radio" name="For Rent" value="For rent" checked ng-model="type" ng-click="toggle('For rent')"> For Rent<br>
+                        <input type="radio" name="For Sale" value="For sale" ng-model="type" ng-click="toggle('For sale')"> For Sale<br>
+                        <div ng-repeat="(key , value) in groups">
+                            <h4>{{key}} BEDROOM</h4>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <th>Furnished</th>
+                                    <th>Beds</th>
+                                    <th>Garage Spot</th>
+                                    <th>Property TYpe</th>
+                                    <th>Current Price</th>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="unit in value" ng-if="unit.property_type == type">
+                                        <td>{{unit.furnished}}</td>
+                                        <td>{{unit.beds}}</td>
+                                        <td>{{unit.garage_spot}}</td>
+                                        <td>{{unit.property_type}}</td>
+                                        <td>{{unit.current_price}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                       </div><!-- End col-md-9  -->
                   </div><!-- End row  -->
                   

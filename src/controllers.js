@@ -46,8 +46,9 @@ app.controller("AllController" , function($scope,$rootScope,$state,$location,$ht
 
 app.controller("SingleController" , function($scope,$rootScope,$state,$stateParams,$http){
 	console.log("SingleController");
-
+	$scope.type = "For sale";
 	init();
+	$scope.toggle = toggle;
 
 	////////////////////////////////////////////////////////////////////////////////
 
@@ -60,8 +61,13 @@ app.controller("SingleController" , function($scope,$rootScope,$state,$statePara
 		$http.get("http://rolycg89.pythonanywhere.com/api/v1/condos/" + $stateParams.slug + "/unit").then(function(response){
 			if(response){
 				$scope.units = response.data;
+				$scope.groups = _.groupBy($scope.units , "beds" , "property_type");
 			}
 		});
+	}
+
+	function toggle(argument) {
+		$scope.type = argument;
 	}
 });
 
