@@ -5,7 +5,7 @@
 	    	<h3 class="panel-title">Please sign in</h3>
 	 	</div>
 	  	<div class="panel-body">
-	    	<form ng-submit="login()">
+	    	<form ng-submit="login()" style="margin-bottom: 20px;">
 		        <fieldset>
 		    	  	<div class="form-group">
 		    		    <input class="form-control" placeholder="E-mail" name="email" ng-model="user.email" type="text">
@@ -23,6 +23,7 @@
 		    		</button>
 		    	</fieldset>
 	      	</form>
+	      	<a ui-sref="register">Create a new account</a>
 	    </div>
 	</div>
 </div>

@@ -56,6 +56,8 @@ app.controller("SingleController" , function($scope,$rootScope,$state,$statePara
 		$http.get("http://rolycg89.pythonanywhere.com/api/v1/condos/" + $stateParams.slug).then(function(response){
 			if(response){
 				$scope.condo = response.data;
+				let img_url = $scope.condo.condo_contents[0].info || '/template/img/single_hotel_bg_1.jpg';
+				$('.parallax-window').parallax({imageSrc: img_url});
 			}
 		});
 		$http.get("http://rolycg89.pythonanywhere.com/api/v1/condos/" + $stateParams.slug + "/unit").then(function(response){
@@ -86,6 +88,7 @@ app.controller("LoginController" , function($scope,$rootScope,$state,$stateParam
 
 	 			$rootScope.access_token = response.data.token;
 	 			$localStorage.access_token = $rootScope.access_token;
+	 			$state.go("home");
 	 		}
 	 	});
 	 }
@@ -102,9 +105,9 @@ app.controller("RegisterController" , function($scope,$rootScope,$state,$statePa
 	function register(){
 		$http.post("http://rolycg89.pythonanywhere.com/api/v1/users/register" , $scope.user).then(function(response){
 			if(response){
-
 				$rootScope.user = response.data;
 				$localStorage.user = $rootScope.user;
+				$state.go("home");
 			}
 		});
 	}

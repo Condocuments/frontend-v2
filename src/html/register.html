@@ -5,7 +5,7 @@
 	    	<h3 class="panel-title">Register Now</h3>
 	 	</div>
 	  	<div class="panel-body">
-	    	<form accept-charset="UTF-8" ng-submit="register()">
+	    	<form accept-charset="UTF-8" ng-submit="register()" style="margin-bottom: 20px;">
 	        <fieldset>
         	  	<div class="form-group">
         		    <input class="form-control" placeholder="First Name" ng-model="user.first_name" name="first_name" type="text">
@@ -32,6 +32,7 @@
 	    		</button>
 	    	</fieldset>
 	      	</form>
+	      	<a ui-sref="login">Already have account?</a>
 	    </div>
 	</div>
 </div>
