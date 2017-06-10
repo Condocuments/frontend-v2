@@ -2,6 +2,7 @@ var app = angular.module("App");
 
 app.controller("HomeController" , function($scope,$rootScope,$state , $http){
 	console.log("HomeController");
+	$("#footer").css("display" , "block");
 	$scope.condos_list = [];
 	$scope.query = {
 		q: ''
@@ -29,6 +30,7 @@ app.controller("AllController" , function($scope,$rootScope,$state,$location,$ht
 	////////////////////////////////////////////////
 
 	function init(){
+		$("#footer").css("display" , "block");
 		var query = $location.search()['query'];
 
 		var url = query ? "http://rolycg89.pythonanywhere.com/api/v1/condos/search?query=" + query : "http://rolycg89.pythonanywhere.com/api/v1/condos"
@@ -44,15 +46,19 @@ app.controller("AllController" , function($scope,$rootScope,$state,$location,$ht
 	}
 });
 
-app.controller("SingleController" , function($scope,$rootScope,$state,$stateParams,$http){
+app.controller("SingleController" , function($scope,$rootScope,$state,$stateParams,$http,$localStorage){
 	console.log("SingleController");
 	$scope.type = "For sale";
+
 	init();
 	$scope.toggle = toggle;
+	$scope.apply = apply;
 
 	////////////////////////////////////////////////////////////////////////////////
 
 	function init(){
+		$("#footer").css("display" , "block");
+		// $('.parallax-window').css("display" , "block");
 		$http.get("http://rolycg89.pythonanywhere.com/api/v1/condos/" + $stateParams.slug).then(function(response){
 			if(response){
 				$scope.condo = response.data;
@@ -71,6 +77,16 @@ app.controller("SingleController" , function($scope,$rootScope,$state,$statePara
 	function toggle(argument) {
 		$scope.type = argument;
 	}
+
+	function apply() {
+		$('.parallax-mirror').css("display" , "none");
+		var access_token = $localStorage.access_token;
+		if(!access_token){
+			$state.go("login");
+			return;
+		}
+		$state.go("apply");
+	}
 });
 
 app.controller("LoginController" , function($scope,$rootScope,$state,$stateParams,$http , $localStorage){
@@ -78,7 +94,7 @@ app.controller("LoginController" , function($scope,$rootScope,$state,$stateParam
 	$scope.user = {
 		"username": "condocuments_test"
 	};
-
+	$("#footer").css("display" , "none");
 	$scope.login = login;
 	
 	////////////////////////////////////////////////////////////////////////////////
@@ -99,7 +115,7 @@ app.controller("RegisterController" , function($scope,$rootScope,$state,$statePa
 	console.log("RegisterController");
 	$scope.user = {};
 	$scope.register = register;
-
+	$("#footer").css("display" , "none");
 	////////////////////////////////////////////////////////////////////////////////
 
 	function register(){
@@ -111,5 +127,11 @@ app.controller("RegisterController" , function($scope,$rootScope,$state,$statePa
 			}
 		});
 	}
+	
+});
+app.controller("ApplyController" , function($scope,$rootScope,$state,$stateParams,$http){
+	console.log("ApplyController");
+	
+	$("#footer").css("display" , "none");
 	
 });

@@ -25,6 +25,11 @@ app.config(function ($stateProvider, $httpProvider, $urlRouterProvider) {
             templateUrl: '/html/register.html',
             controller: 'RegisterController'
         })
+        .state('apply' , {
+            url: '/apply',
+            templateUrl: '/html/apply.html',
+            controller: 'ApplyController'
+        })
         .state('single' , {
             url: '/:slug',
             templateUrl: '/html/single.html',
