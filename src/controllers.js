@@ -111,7 +111,7 @@ app.controller("LoginController" , function($scope,$rootScope,$state,$stateParam
 	
 });
 
-app.controller("RegisterController" , function($scope,$rootScope,$state,$stateParams,$http){
+app.controller("RegisterController" , function($scope,$rootScope,$state,$stateParams,$http, $localStorage){
 	console.log("RegisterController");
 	$scope.user = {};
 	$scope.register = register;
